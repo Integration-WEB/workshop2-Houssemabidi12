@@ -1,0 +1,38 @@
+$primary-color :red;
+.text{
+    
+    color: background(white);
+    font-size: 20px;
+
+}
+textarea,h1{
+        @extend .text
+}
+
+@mixin btn($border:3px, $color:solid yellow) {
+    border:solid $border $color
+    
+}
+.btn{
+    @include btn();
+}
+@function background($background){
+    @if $background!=white {
+        @return white;
+    }@else{
+       @return black
+    }
+
+}
+$langage:HTML5, CSS3,JAVA, React ;
+@function test($langage){
+    @return nth($langage ,1);
+    }
+@function test1($langage){
+    @return nth($langage , length($langage));
+    }
+.langage{
+    content: test1($langage),test($langage);
+}
+
+
